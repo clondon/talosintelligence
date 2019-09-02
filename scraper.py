@@ -47,7 +47,7 @@ def parseTable(table):
         saveToDB(row)
     return True
 
-def get_count():
+def getDataFromRemoteSite():
     url = "https://talosintelligence.com/"
 
     # Request with fake header, talosintelligence bans if user agent is not correct. Copied from my browser
@@ -73,8 +73,8 @@ def createTableIfNotExists():
 def main():
     createTableIfNotExists()
     while True:
-        print(get_count())
-        time.sleep(60)
+        getDataFromRemoteSite()
+        time.sleep(60*60*24)
 
 if __name__== "__main__":
   main()
